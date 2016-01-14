@@ -25,9 +25,3 @@ proguard/
 
 # Log Files
 *.log
-
-#Intellij
-.idea/
-Mep.iml
-
-
