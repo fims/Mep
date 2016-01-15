@@ -1,15 +1,13 @@
 package hevs.aislab.mep;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 
 import java.util.Calendar;
 
 import ch.hevs.aislab.magpie.agent.MagpieAgent;
 import ch.hevs.aislab.magpie.android.MagpieActivity;
 import ch.hevs.aislab.magpie.behavior.PriorityBehaviorAgentMind;
-import ch.hevs.aislab.magpie.behavior.SequentialBehaviorAgentMind;
-import ch.hevs.aislab.magpie.environment.Environment;
 import ch.hevs.aislab.magpie.environment.Services;
 import ch.hevs.aislab.magpie.event.LogicTupleEvent;
 
@@ -30,24 +28,28 @@ public class MainActivity extends MagpieActivity {
     /**
      * Method called by the button trigger_event.
      * The TestBehaviour class triggers an event if the value is below 10.
+     *
+     * @param view View
      */
-    public void triggerEvent() {
+    public void triggerEvent(View view) {
         LogicTupleEvent logicTupleEvent = new LogicTupleEvent("test", "1");
         logicTupleEvent.setTimeStamp(Calendar.getInstance().get(Calendar.MILLISECOND));
-        Log.d("Testing/debugging", "Number of agents: " + Environment.getInstance().getRegisteredAgents().size());
-
         sendEvent(logicTupleEvent);
     }
 
     /**
+
+     */
+    /**
      * Method called by the button dont_trigger_event
      * The TestBehaviour class triggers an event if the value is below 10.
+     *
+     * @param view View
      */
-    public void dontTriggerEvent() {
+    public void dontTriggerEvent(View view) {
         // event gets triggered if value is below 10
         LogicTupleEvent logicTupleEvent = new LogicTupleEvent("test", "10");
         logicTupleEvent.setTimeStamp(Calendar.getInstance().get(Calendar.MILLISECOND));
-        triggerEvent();
         sendEvent(logicTupleEvent);
     }
 
